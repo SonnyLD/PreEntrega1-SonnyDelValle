@@ -1,7 +1,7 @@
-import React from 'react'
-import './Cards.css'
+import React  from 'react'
+import './Items.css'
 
-export default function Cards(props){
+export default function Items(props){
   console.log(props);
   return (
     <div>
@@ -14,11 +14,14 @@ export default function Cards(props){
             className="product-image"
           />
           <h2>{props.title}</h2>
-          <p className="product-name">{props.name}</p>
-          <p className="product-price">{props.precio}</p>
+          <p className="product-detail">{props.detail}</p>
+          <p className="product-price">$ {props.precio}</p>
+          
         </div>
+       
      
     </div>
   )
+  
 }
 
