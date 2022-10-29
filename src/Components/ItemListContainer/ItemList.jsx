@@ -3,7 +3,7 @@ import Items from '../Items/Items';
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
 import Imagenes from "../Assets/Imagenes";
 function ItemList(props) {
-
+ <Imagenes />
     return (
       <>
         <FlexWrapper>
