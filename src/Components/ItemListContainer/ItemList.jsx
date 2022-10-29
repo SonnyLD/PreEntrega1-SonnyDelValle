@@ -1,8 +1,9 @@
 import React from 'react';
 import Items from '../Items/Items';
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
-import Imagenes from '../Assets/Imagenes';
+import Imagenes from "../Assets/Imagenes";
 function ItemList(props) {
+
     return (
       <>
         <FlexWrapper>
@@ -14,13 +15,15 @@ function ItemList(props) {
                 title={product.title}
                 src={product.src}
                 precio={product.precio}
+                stock={product.stock}
                 detail={product.detail}
               />
             );
           })}
-        </FlexWrapper>
-      </>
+        </FlexWrapper> 
+      </> 
     );
+    
   }
   
   export default ItemList;

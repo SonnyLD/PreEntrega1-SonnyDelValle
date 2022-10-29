@@ -1,30 +1,39 @@
 
 import React, {useState, useEffect} from 'react';
+import { getProduct, getProductByCategory } from '../services/firebase';
 
-import { getProduct, getProductByCategory} from '../../MockApi/MockApi';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
+import Loader from '../Loader/Loader';
+import FlexWrapper from '../FlexWrapper/FlexWrapper';
 
 export default function ItemListContainer(props){
+ 
+
   const [productList, setProductList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const params = useParams();
   const categoryID = params.categoryID;
 
   useEffect(() => {
+    setProductList([])
     if (categoryID === undefined) {
       getProduct().then((data) => {
         setProductList(data);
+        setIsLoading(false);
       });
     } else {
       getProductByCategory(categoryID).then((data) => {
         setProductList(data);
+        setIsLoading(false);
       });
     }
   }, [categoryID]);
   return (
-    console.log(props),
-    <div>
-      <ItemList productList={productList}/>
+    
+    <div className='container'>
+      {isLoading ? <FlexWrapper><Loader/> </FlexWrapper>: <ItemList productList={productList}/>}
     </div>
   )
 }

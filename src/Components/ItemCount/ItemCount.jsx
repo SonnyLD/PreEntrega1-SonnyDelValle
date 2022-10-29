@@ -1,8 +1,8 @@
 
 import React, { useState } from "react";
-import './ItemCount'
+import './ItemCount.css'
 
-export default function ItemCount({ stock, initial, onAdd})  {
+export default function ItemCount({ stock, initial, onAddToCart})  {
 
     const [count, setCount] = useState(initial);
 
@@ -11,8 +11,16 @@ export default function ItemCount({ stock, initial, onAdd})  {
   
     };
   return (
+ 
     <div className="count-container">
       <div className="count-container__contador">
+ 
+    <div className="buttons">
+    <button type="button" className="add-to-cart" onClick={()=> {onAddToCart(count)}}>Add to Cart</button>
+    
+
+  </div>
+  
         <button
           className="count-container__button"
           onClick={() => addProduct(-1)}
@@ -28,14 +36,8 @@ export default function ItemCount({ stock, initial, onAdd})  {
         >
           +
         </button>
-      </div>
-      <button
-        className="button-primary"
-        onClick={() => onAdd(count)}
-        disabled={stock === 0 ? true : null}
-      >
-        Añadir
-      </button>
+       
+      </div> 
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import "./Navbar.css"
 import { Link } from "react-router-dom"
+import CartWidget from "./CartWidget"
 export default function Navbar(){
  return (
  <nav className="nav">
@@ -14,12 +15,15 @@ export default function Navbar(){
     </Link>
    <ul>
     <li className="active">
-      <Link to ="/Product">Product</Link>
+      <Link to ="/Stock">Stock</Link>
       </li>
       <li>
       <Link to="/about">About</Link>
     </li>
    </ul>
+  
+    <CartWidget/>
  </nav>
+
  )
 }

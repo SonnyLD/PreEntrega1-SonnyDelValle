@@ -1,22 +1,23 @@
 import React from 'react'
 import "./HeroBanner.css"
-export default function HeroBanner()  {
+export default function HeroBanner(props)  {
   return (
+    
     <>
       <div className="hero-banner-container">
       <div>
-        <p className="beats-solo">Texto PEQUEÑO</p>
-        <h3>Texto MEDIANO</h3>  
+        <p className="beats-solo">Choice</p>
+        <h3>To Equipment</h3>  
         
-        <img src=""alt="Balones" className="hero-banner-image" />
+        <img src="https://dondiario.com/images/2021/01/14/1610615553.jpg"alt="Balones" className="hero-banner-image" />
 
         <div>
           
             <button type="button">Boton con texto</button>
         
           <div className="desc">
-            <h5>Description</h5>
-            <p>DESCRIPCION</p>
+            <h5>Productos</h5>
+            <p>Especializado</p>
           </div>
         </div>
       </div>

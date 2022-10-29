@@ -7,6 +7,7 @@ const data = [
     src: "/static/media/Agility.98636abb4f151cfeb510.jpg",
     precio: 100,
     detail:"Equipo de habilidad",
+    stock: 10,
     category:"futbol",  
  },
  {
@@ -16,6 +17,7 @@ const data = [
     src: "/static/media/disparo.fd4df4b78756b4b6dba6.jpg",
     precio: 60,
     detail:"Correa y pelota", 
+    stock: 100,
     category:"basket",
  },
  {
@@ -25,6 +27,7 @@ const data = [
     src:"/static/media/Rebound.5de9a3263a449b4ddfb3.jpg",
     precio: 85,
     detail:"Panel de pases", 
+    stock: 20,
     category:"futbol",
  },
  {
@@ -34,6 +37,7 @@ const data = [
     src: "/static/media/correa.307bfe62b129131d64b2.jpg",
     precio: 100,
     detail:"Correa para disparos y mejora efectividad",
+    stock: 50,
     category:"basket",
  },
  {
@@ -43,6 +47,7 @@ const data = [
     src: "/static/media/pase.8c73989d79f56c6dff57.jpg",
     precio: 150,
     detail:"Mejora los pases por varios angulos", 
+    stock: 20,
     category:"basket",
  },
  {
@@ -52,6 +57,7 @@ const data = [
     src: "/static/media/Kick.6a8b977c0e28eef9d0d8.jpg",
     precio: 50,
     detail:"Control de balon tanto de derecha como izquierda",
+    stock: 15,
     category:"futbol",
  }
 
@@ -63,11 +69,17 @@ export function getProduct() {
   }
 
   export function getUnProduct(idParams) {
-   return new Promise((resolve) => {
+   return new Promise((resolve, reject) => {
       let productReq = data.find((item) => {
          return item.id === Number(idParams);
        });
-     setTimeout(() => resolve(productReq), 2000);
+     setTimeout(() => {
+      if(productReq === undefined) 
+       reject(new Error("No se pudo encontrar el producto"))
+      else{
+         resolve(productReq)
+      }
+     }  , 2000);
    });
  }
  export function getProductByCategory(idCategoryParams) {
